@@ -1,0 +1,21 @@
+<div class="calculator">
+  <div class="inputs">
+    <input type="number" [(ngModel)]="firstNumber"/>
+    {{operator}}
+    <input type="number" [(ngModel)]="secondNumber"/>
+  </div>
+  <div>{{result}}</div>
+  <div class="operators">
+    <input
+      *ngFor="let operator of operators"
+      type="button"
+      [value]="operator.value"
+      (click)="setOperator($event)"/>
+  </div>
+  <input 
+    class="calculate"
+    type="button"
+    value="calculate"
+    [disabled]="!operator"
+    (click)="calculate()">
+</div>
